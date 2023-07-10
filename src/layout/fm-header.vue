@@ -1,13 +1,11 @@
 <template>
 	<a-layout-header style="background: #fff; padding: 0">
-		<fm-icon :icon="iconName" :size="16" class="trigger" @click="handleCollapsed" />
-		<!-- <menu-unfold-outlined /> -->
+		<component :is="iconName" @click="handleCollapsed" class="collapse-icon"></component>
 	</a-layout-header>
 </template>
 
 <script setup lang="ts">
 import { computed } from 'vue'
-import FmIcon from '../components/fm-icon/index.vue'
 
 const props = defineProps({
 	collapsed: {
@@ -16,7 +14,7 @@ const props = defineProps({
 	}
 })
 const iconName = computed(() => {
-	return props.collapsed ? 'UpCircleFilled' : 'UpCircleFilled'
+	return props.collapsed ? 'menu-unfold-outlined' : 'menu-fold-outlined'
 })
 
 const emit = defineEmits(['update:collapsed'])
@@ -25,7 +23,7 @@ const handleCollapsed = () => {
 }
 </script>
 <style lang="scss" scoped>
-.trigger {
+.collapse-icon {
 	font-size: 18px;
 	line-height: 64px;
 	padding: 0 24px;
@@ -33,7 +31,7 @@ const handleCollapsed = () => {
 	transition: color 0.3s;
 }
 
-.trigger:hover {
+.collapse-icon:hover {
 	color: #1890ff;
 }
 </style>

@@ -3,9 +3,10 @@
 		<fm-aside :collapsed="collapsed" />
 		<a-layout>
 			<fm-header v-model:collapsed="collapsed" />
-			<fm-tabs />
-			<a-layout-content :style="{ margin: '24px 16px', padding: '24px', background: '#fff', minHeight: '280px' }">
+			<a-layout-content>
+				<fm-tabs />
 				<fm-breadcrumb />
+				<router-view></router-view>
 			</a-layout-content>
 		</a-layout>
 	</a-layout>
@@ -25,10 +26,10 @@ const collapsed = ref<boolean>(false)
 .ant-layout {
 	height: 100vh;
 	.ant-layout-content {
-		margin: '24px 16px';
-		padding: '24px';
-		background: '#fff';
-		min-height: '280px';
+		margin: 1rem;
+		padding: 1rem;
+		background: #fff;
+		min-height: 280px;
 	}
 }
 </style>

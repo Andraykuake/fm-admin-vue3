@@ -1,8 +1,6 @@
 <template>
-	<a-tabs type="editable-card" hide-add v-model:selectedTab="selectedTab" @edit="handleTabEdit">
-		<a-tab-pane v-for="tab in tabs" :key="tab.key" :tab="tab.title" :closable="tabs.length > 1">
-			<router-view :key="tab.key"></router-view>
-		</a-tab-pane>
+	<a-tabs type="editable-card" size="small" hide-add v-model:selectedTab="selectedTab" @edit="handleTabEdit">
+		<a-tab-pane v-for="tab in tabs" :key="tab.key" :tab="tab.title" :closable="tabs.length > 1"> </a-tab-pane>
 	</a-tabs>
 </template>
 
@@ -38,5 +36,8 @@ router.beforeEach((to) => {
 <style lang="scss" scoped>
 .ant-tabs {
 	margin-top: 3px;
+	.ant-tabs-tab {
+		height: 2rem !important;
+	}
 }
 </style>

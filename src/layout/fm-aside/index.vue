@@ -1,6 +1,6 @@
 <template>
 	<a-layout-sider :collapsed="collapsed" :trigger="null" collapsible>
-		<fm-logo />
+		<fm-logo :collapsed="collapsed" />
 		<fm-menu />
 	</a-layout-sider>
 </template>
