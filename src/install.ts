@@ -7,7 +7,7 @@ import * as AIcons from '@ant-design/icons-vue'
 export default {
 	install(app: App) {
 		Object.keys(AIcons).forEach((name: any) => {
-			app.component(name, AIcons[name])
+			app.component(name, AIcons[name as keyof typeof AIcons])
 		})
 	}
 }
