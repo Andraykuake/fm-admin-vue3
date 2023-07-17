@@ -1,19 +1,18 @@
 <template>
-	<a-menu theme="dark" mode="inline" v-model:selectedKeys="selectedKeys">
+	<a-menu theme="dark" mode="inline" :selectedKeys="selectedKeys">
 		<fm-menu-item :menus="menus" />
 	</a-menu>
 </template>
 
 <script setup lang="ts">
-import { PropType, ref } from 'vue'
+import { PropType } from 'vue'
 import { RouteRecordRaw } from 'vue-router'
 import FmMenuItem from './fm-menu-item.vue'
 
 defineOptions({
 	name: 'FmMenuItem'
 })
-
-const props = defineProps({
+defineProps({
 	selectedKeys: {
 		type: Array as () => string[],
 		default: ['工作台']
@@ -61,6 +60,4 @@ const props = defineProps({
 		]
 	}
 })
-
-const selectedKeys = ref<string[]>(props.selectedKeys)
 </script>
