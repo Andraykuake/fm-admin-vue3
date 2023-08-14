@@ -1,19 +1,23 @@
 <template>
 	<a-layout-sider :collapsed="collapsed" :trigger="null" collapsible>
 		<fm-logo :collapsed="collapsed" />
-		<fm-menu :selectedKeys="selectedKeys" />
+		<fm-menu :selectedKeys="selectedKeys" :menus="menus" />
 	</a-layout-sider>
 </template>
 
 <script setup lang="ts">
-import { ref, watch } from 'vue'
-import { useRoute, useRouter } from 'vue-router'
+import { onMounted, ref, watch } from 'vue'
+import { useRoute } from 'vue-router'
 import FmLogo from './components/fm-logo/index.vue'
 import FmMenu from './components/fm-menu/index.vue'
+import { MenuType } from './components/fm-menu/menu'
+
+import api from '@/api/index'
 
 const currentRoute = useRoute()
-const router = useRouter()
-console.log(router)
+
+const menus = ref<Array<MenuType>>([])
+
 const props = defineProps({
 	collapsed: {
 		type: Boolean,
@@ -22,6 +26,19 @@ const props = defineProps({
 })
 
 const selectedKeys = ref<string[]>([])
+
+onMounted(() => {
+	api.sysPermission
+		.querySysPermissionList({
+			params: { type: 2 }
+		})
+		.then(({ code, data }) => {
+			if (code == 200) {
+				console.log(data)
+				menus.value = data
+			}
+		})
+})
 
 // 跟随页面路由变化，切换菜单选中状态
 watch(
