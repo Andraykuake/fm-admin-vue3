@@ -36,4 +36,3 @@ const isSubMenu = (menuItem: MenuType) => {
 	return !(!menuItem?.children || menuItem.children.length == 0)
 }
 </script>
-../../types/menu

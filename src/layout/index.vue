@@ -14,10 +14,10 @@
 
 <script setup lang="ts">
 import { provide, ref, nextTick } from 'vue'
-import FmHeader from './fm-header.vue'
-import FmTabs from './fm-tabs.vue'
+import FmHeader from './fm-header/index.vue'
+import FmTabs from './fm-tabs/index.vue'
 import FmAside from './fm-aside/index.vue'
-import FmBreadcrumb from './fm-breadcrumb.vue'
+import FmBreadcrumb from './fm-breadcrumb/index.vue'
 
 const collapsed = ref<boolean>(false)
 
