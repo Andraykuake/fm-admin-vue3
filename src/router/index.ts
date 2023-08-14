@@ -1,6 +1,7 @@
 import type { RouteRecordRaw } from 'vue-router'
 import { createRouter, createMemoryHistory, createWebHistory } from 'vue-router'
 import { useTabsStore, useActiveTabStore } from '@/hooks/tabs'
+
 const routes: RouteRecordRaw[] = [
 	{
 		meta: {
@@ -9,29 +10,29 @@ const routes: RouteRecordRaw[] = [
 		},
 		path: '/',
 		name: '首页',
-		redirect: '/workspace',
+		redirect: '/home',
 		component: () => import('@/layout/index.vue'),
 		children: [
 			{
-				path: '/workspace',
+				path: '/home',
 				name: '工作台',
 				meta: {},
-				component: () => import('@/pages/workspace.vue')
+				component: () => import('@/pages/home.vue')
 			},
 			{
-				path: '/users',
+				path: '/user',
 				name: '用户管理',
-				component: () => import('@/pages/sys-user/index.vue')
+				component: () => import('@/pages/user.vue')
 			},
 			{
-				path: '/roles',
+				path: '/role',
 				name: '角色管理',
-				component: () => import('@/pages/sys-role/index.vue')
+				component: () => import('@/pages/role.vue')
 			},
 			{
-				path: '/permissions',
+				path: '/priess',
 				name: '权限管理',
-				component: () => import('@/pages/sys-permissions/index.vue')
+				component: () => import('@/pages/priess.vue')
 			}
 		]
 	},
@@ -42,7 +43,7 @@ const routes: RouteRecordRaw[] = [
 		},
 		name: '分类',
 		path: '/category/:id',
-		component: () => import('@/pages/workspace.vue')
+		component: () => import('@/pages/home.vue')
 	},
 	{
 		meta: {
@@ -50,7 +51,7 @@ const routes: RouteRecordRaw[] = [
 			keywords: 'Fly Code Ape'
 		},
 		path: '/404',
-		component: () => import('@/pages/workspace.vue')
+		component: () => import('@/pages/home.vue')
 	}
 ]
 const _router = createRouter({

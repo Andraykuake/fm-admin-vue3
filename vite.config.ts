@@ -15,18 +15,8 @@ export default defineConfig({
 	],
 	resolve: {
 		alias: {
-			'@': path.resolve(__dirname, 'src'),
-			'~': path.resolve(__dirname, '')
+			'@': path.resolve(__dirname, 'src')
 			// 添加更多的别名设置
-		}
-	},
-	server: {
-		proxy: {
-			'/admin': {
-				target: 'http://localhost', // 将请求转发到的目标服务器
-				changeOrigin: true, // 设置为 true，以便接受来自不同源的请求
-				rewrite: (path) => path.replace(/^\/admin/, '/admin') // 将请求路径中的 '/api' 替换为空字符串
-			}
 		}
 	}
 })
