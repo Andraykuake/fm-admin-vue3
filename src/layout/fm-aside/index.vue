@@ -10,13 +10,13 @@ import { onMounted, ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
 import FmLogo from './components/fm-logo/index.vue'
 import FmMenu from './components/fm-menu/index.vue'
-import { MenuType } from './components/fm-menu/menu'
+import { SysMenu } from '../../../types/models'
 
 import api from '@/api/index'
 
 const currentRoute = useRoute()
 
-const menus = ref<Array<MenuType>>([])
+const menus = ref<Array<SysMenu>>([])
 
 const props = defineProps({
 	collapsed: {
@@ -29,7 +29,7 @@ const selectedKeys = ref<string[]>([])
 
 onMounted(() => {
 	api.sysPermission
-		.querySysPermissionList()
+		.querySysPermissionList({ type: 1 })
 		.then((res) => {
 			if (res.code == 200) {
 				console.log(res.data)

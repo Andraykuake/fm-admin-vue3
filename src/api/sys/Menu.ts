@@ -12,7 +12,7 @@ export function deleteSysPermissionById(data: any) {
 }
 
 export function querySysPermissionList(data: any = {}) {
-  return get(baseURL + '/menu/list', data)
+  return get(baseURL + '/menu/list', { params: data })
 }
 
 export function querySysPermissionById(data: any) {

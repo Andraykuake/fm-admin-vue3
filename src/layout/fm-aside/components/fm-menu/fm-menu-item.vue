@@ -1,17 +1,17 @@
 <template>
 	<template v-for="menu in menus">
-		<template v-if="!isSubMenu(menu)">
-			<a-menu-item :key="menu.name">
-				<router-link :to="menu.path || ''">
+		<template v-if="!hasSubMenu(menu)">
+			<a-menu-item :key="menu.menu_name">
+				<router-link :to="menu.url || ''">
 					<!-- <component :is="menu.icon" /> -->
-					<span>{{ menu.name }}</span>
+					<span>{{ menu.menu_name }}</span>
 				</router-link>
 			</a-menu-item>
 		</template>
 		<template v-else>
-			<a-sub-menu :key="menu.name">
+			<a-sub-menu :key="menu.menu_name">
 				<!-- <template #icon> <component :is="menu.icon" /> </template> -->
-				<template #title>{{ menu.name }}</template>
+				<template #title>{{ menu.menu_name }}</template>
 				<fm-menu-item :menus="menu.children" />
 			</a-sub-menu>
 		</template>
@@ -19,7 +19,7 @@
 </template>
 
 <script setup lang="ts">
-import { MenuType } from './menu'
+import { SysMenu } from '../../../../../types/models'
 
 defineOptions({
 	name: 'FmMenuItem'
@@ -27,12 +27,12 @@ defineOptions({
 
 defineProps({
 	menus: {
-		type: Array<MenuType>,
+		type: Array<SysMenu>,
 		default: () => []
 	}
 })
 
-const isSubMenu = (menuItem: MenuType) => {
+const hasSubMenu = (menuItem: SysMenu) => {
 	return !(!menuItem?.children || menuItem.children.length == 0)
 }
 </script>

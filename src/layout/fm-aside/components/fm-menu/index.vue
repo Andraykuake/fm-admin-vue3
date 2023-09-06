@@ -7,7 +7,7 @@
 <script setup lang="ts">
 import { ref, watch } from 'vue'
 import FmMenuItem from './fm-menu-item.vue'
-import { MenuType } from './menu'
+import { SysMenu } from '../../../../../types/models'
 
 defineOptions({
 	name: 'FmMenuItem'
@@ -18,7 +18,7 @@ const props = defineProps({
 		default: []
 	},
 	menus: {
-		type: Array<MenuType>,
+		type: Array<SysMenu>,
 		default: () => [
 			// {
 			// 	id: 1,
@@ -75,9 +75,9 @@ const onOpenChange = (keys: string[]) => {
 
 watch(
 	() => props.menus,
-	(value: Array<MenuType>) => {
+	(value: Array<SysMenu>) => {
 		value.map((menu) => {
-			rootSubmenuKeys.value.push(menu.name)
+			rootSubmenuKeys.value.push(menu.menu_name)
 		})
 	}
 )
