@@ -5,26 +5,28 @@ import {
   del
 } from '@/config/http.config'
 
+const baseURL = '/api/v1'
+
 export function deleteSysPermissionById(data: any) {
-  return del('/admin/sysPermission/delete', data)
+  return del(baseURL + '/menu/delete', data)
 }
 
 export function querySysPermissionList(data: any = {}) {
-  return get('/admin/sysPermission/list', data)
+  return get(baseURL + '/menu/list', data)
 }
 
 export function querySysPermissionById(data: any) {
-  return get('/admin/sysPermission/single', data)
+  return get(baseURL + '/menu/single', data)
 }
 
 export function querySysPermissionByRoleId(data: any) {
-  return get('/admin/sysPermission/listByRoleId', data)
+  return get(baseURL + '/menu/listByRoleId', data)
 }
 
 export function addSysPermission(data: any) {
-  return post('/admin/sysPermission/add', data)
+  return post(baseURL + '/menu/add', data)
 }
 
 export function updateSysPermission(data: any) {
-  return put('/admin/sysPermission/update', data)
+  return put(baseURL + '/menu/update', data)
 }

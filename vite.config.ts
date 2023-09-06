@@ -23,9 +23,9 @@ export default defineConfig({
 	server: {
 		proxy: {
 			'/admin': {
-				target: 'http://localhost', // 将请求转发到的目标服务器
+				target: 'http://localhost:3001', // 将请求转发到的目标服务器
 				changeOrigin: true, // 设置为 true，以便接受来自不同源的请求
-				rewrite: (path) => path.replace(/^\/admin/, '/admin') // 将请求路径中的 '/api' 替换为空字符串
+				rewrite: (path) => path.replace(/^\/api/, '/api') // 将请求路径中的 '/api' 替换为空字符串
 			}
 		}
 	}

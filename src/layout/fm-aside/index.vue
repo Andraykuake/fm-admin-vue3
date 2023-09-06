@@ -29,13 +29,11 @@ const selectedKeys = ref<string[]>([])
 
 onMounted(() => {
 	api.sysPermission
-		.querySysPermissionList({
-			params: { type: 2 }
-		})
-		.then(({ code, data }) => {
-			if (code == 200) {
-				console.log(data)
-				menus.value = data
+		.querySysPermissionList()
+		.then((res) => {
+			if (res.code == 200) {
+				console.log(res.data)
+				menus.value = res.data
 			}
 		})
 })
