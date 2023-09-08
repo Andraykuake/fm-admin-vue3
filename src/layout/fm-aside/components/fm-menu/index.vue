@@ -7,7 +7,7 @@
 <script setup lang="ts">
 import { ref, watch } from 'vue'
 import FmMenuItem from './fm-menu-item.vue'
-import { SysMenu } from '../../../../../types/models'
+import { SysMenu } from '@/types/models'
 
 defineOptions({
 	name: 'FmMenuItem'

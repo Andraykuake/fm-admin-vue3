@@ -1,17 +1,17 @@
 <template>
-	<a-table rowKey="id" :columns="columns" bordered :data-source="permissions" :scroll="{ y: 'calc(100vh - 340px)' }">
+	<a-table rowKey="menu_id" :columns="columns" bordered :data-source="permissions" :scroll="{ y: 'calc(100vh - 340px)' }">
 		<template v-slot:headerCell="{ column }">
 			<span style="font-weight: bolder">{{ column.title }}</span>
 		</template>
 		<template v-slot:bodyCell="{ record, text, column }">
-			<template v-if="column.dataIndex == 'type'">
+			<template v-if="column.dataIndex == 'menu_type'">
 				<a-tag :color="getColumnType(text).color">
 					{{ getColumnType(text).text }}
 				</a-tag>
 			</template>
-			<template v-if="column.dataIndex == 'status'">
-				<a-tag :color="text === 1 ? 'green' : 'volcano'">
-					{{ text == 1 ? '生效' : '删除' }}
+			<template v-if="column.dataIndex == 'visible'">
+				<a-tag :color="text === 0 ? 'green' : 'volcano'">
+					{{ text == 0 ? '显示' : '隐藏' }}
 				</a-tag>
 			</template>
 			<template v-if="column.dataIndex == 'operation'">
@@ -26,26 +26,19 @@
 <script setup lang="ts">
 import api from '@/api/index'
 import { ref, reactive, onBeforeMount } from 'vue'
-const permissions = ref<DataItem[]>([])
+import { SysMenu } from '@/types/models'
+const permissions = ref<SysMenu[]>([])
 const columns = reactive([
-	{ title: '权限名称', align: 'center', dataIndex: 'name' },
-	{ title: '权限路由', align: 'center', dataIndex: 'path', width: '30' },
+	{ title: '权限名称', align: 'center', dataIndex: 'menu_name' },
+	{ title: '权限路由', align: 'center', dataIndex: 'url', width: '30' },
 	{ title: '权限标识', align: 'center', dataIndex: 'perms', width: '20%' },
-	{ title: '权限类型', align: 'center', dataIndex: 'type', width: '10%' },
-	{ title: '权限状态', align: 'center', dataIndex: 'status', width: '10%' },
+	{ title: '权限类型', align: 'center', dataIndex: 'menu_type', width: '10%' },
+	{ title: '权限状态', align: 'center', dataIndex: 'visible', width: '10%' },
 	{ title: '操作', align: 'center', dataIndex: 'operation', width: '209px' }
 ])
-interface DataItem {
-	name: string
-	path: string
-	perms: string
-	type: number
-	status: number
-	children?: DataItem[]
-}
 
 onBeforeMount(() => {
-	loadPermissionList()
+	loadPermissionList();
 })
 
 /**

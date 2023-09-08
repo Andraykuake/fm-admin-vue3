@@ -10,7 +10,7 @@ import { onMounted, ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
 import FmLogo from './components/fm-logo/index.vue'
 import FmMenu from './components/fm-menu/index.vue'
-import { SysMenu } from '../../../types/models'
+import { SysMenu } from '@/types/models'
 
 import api from '@/api/index'
 
@@ -28,14 +28,12 @@ const props = defineProps({
 const selectedKeys = ref<string[]>([])
 
 onMounted(() => {
-	api.sysPermission
-		.querySysPermissionList({ type: 1 })
-		.then((res) => {
-			if (res.code == 200) {
-				console.log(res.data)
-				menus.value = res.data
-			}
-		})
+	api.sysPermission.querySysPermissionList({ type: 1 }).then((res) => {
+		if (res.code == 200) {
+			console.log(res.data)
+			menus.value = res.data
+		}
+	})
 })
 
 // 跟随页面路由变化，切换菜单选中状态

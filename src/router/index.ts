@@ -19,19 +19,19 @@ const routes: RouteRecordRaw[] = [
 				component: () => import('@/pages/workspace.vue')
 			},
 			{
-				path: '/users',
+				path: '/system/user',
 				name: '用户管理',
-				component: () => import('@/pages/sys-user/index.vue')
+				component: () => import('@/pages/system/user/index.vue')
 			},
 			{
-				path: '/roles',
+				path: '/system/role',
 				name: '角色管理',
-				component: () => import('@/pages/sys-role/index.vue')
+				component: () => import('@/pages/system/role/index.vue')
 			},
 			{
-				path: '/permissions',
-				name: '权限管理',
-				component: () => import('@/pages/sys-permissions/index.vue')
+				path: '/system/menu',
+				name: '菜单管理',
+				component: () => import('@/pages/system/menu/index.vue')
 			}
 		]
 	},

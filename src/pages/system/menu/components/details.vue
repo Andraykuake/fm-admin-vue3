@@ -7,34 +7,31 @@
 
 			<a-form :model="data" name="basic" :label-col="{ span: 5 }" :wrapper-col="{ span: 19 }" autocomplete="off">
 				<a-form-item label="权限名称">
-					<span>{{ data.name }}</span>
+					<span>{{ data.menu_name }}</span>
 				</a-form-item>
 				<a-form-item label="权限路由">
-					<span>{{ data.path }}</span>
+					<span>{{ data.url }}</span>
 				</a-form-item>
 				<a-form-item label="权限标识">
 					<span>{{ data.perms }}</span>
 				</a-form-item>
 				<a-form-item label="权限类型">
-					<a-tag :color="getColumnType(data.type).color">
-						{{ getColumnType(data.type).text }}
+					<a-tag :color="getColumnType(data.menu_type).color">
+						{{ getColumnType(data.menu_type).text }}
 					</a-tag>
 				</a-form-item>
 				<a-form-item label="权限状态">
-					<a-tag :color="data.status === 1 ? 'green' : 'volcano'">
-						{{ data.status == 1 ? '生效' : '删除' }}
+					<a-tag :color="data.status === 0 ? 'green' : 'volcano'">
+						{{ data.status == 0 ? '显示' : '隐藏' }}
 					</a-tag>
 				</a-form-item>
 				<a-form-item label="权限排序">
 					<span>{{ data.order_num }}</span>
 				</a-form-item>
-				<a-form-item label="权限级别">
-					<span>{{ data.level }}</span>
-				</a-form-item>
 				<a-form-item label="创建时间">
 					<span>{{ data.create_time }}</span>
 				</a-form-item>
-				<a-form-item label="权限级别">
+				<a-form-item label="更新时间">
 					<span>{{ data.update_time }}</span>
 				</a-form-item>
 			</a-form>

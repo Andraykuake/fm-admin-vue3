@@ -19,6 +19,7 @@ const detailsData = ref({})
 
 const detailsEvent = (data: Object) => {
 	detailsVisible.value = true
+	console.log(data)
 	detailsData.value = data
 }
 
