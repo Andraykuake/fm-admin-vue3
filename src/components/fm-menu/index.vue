@@ -1,5 +1,11 @@
 <template>
-	<a-menu theme="dark" mode="inline" :openKeys="openKeys" :selectedKeys="selectedKeys" @openChange="onOpenChange">
+	<a-menu
+		theme="dark"
+		mode="inline"
+		:openKeys="openKeys"
+		:selectedKeys="selectedKeys"
+		@openChange="onOpenChange"
+	>
 		<fm-menu-item :menus="menus" />
 	</a-menu>
 </template>

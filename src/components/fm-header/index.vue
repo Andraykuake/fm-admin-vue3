@@ -1,11 +1,17 @@
 <template>
-	<a-layout-header style="background: #fff; padding: 0">
-		<component :is="iconName" @click="handleCollapsed" class="collapse-icon"></component>
+	<a-layout-header style="background: #fff; padding: 0;">
+		<component
+			:is="iconName"
+			@click="handleCollapsed"
+			class="collapse-icon"
+		></component>
+		<fm-breadcrumb />
 	</a-layout-header>
 </template>
 
 <script setup lang="ts">
 import { computed } from 'vue'
+import FmBreadcrumb from '@/components/fm-breadcrumb/index.vue'
 
 const props = defineProps({
 	collapsed: {
@@ -23,6 +29,10 @@ const handleCollapsed = () => {
 }
 </script>
 <style lang="scss" scoped>
+.ant-layout-header {
+	display: flex;
+	align-items: center;
+}
 .collapse-icon {
 	font-size: 18px;
 	line-height: 64px;

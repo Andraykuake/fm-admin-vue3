@@ -1,11 +1,14 @@
 <template>
 	<a-layout>
+		<!-- 左侧菜单 -->
 		<fm-aside :collapsed="collapsed" />
 		<a-layout>
+			<!-- 头部内容 -->
 			<fm-header v-model:collapsed="collapsed" />
+			<!-- 标签导航 -->
 			<fm-tabs />
+			<!-- 主内容区 -->
 			<a-layout-content>
-				<fm-breadcrumb />
 				<router-view v-if="isRouterAlive"></router-view>
 			</a-layout-content>
 		</a-layout>
@@ -14,10 +17,9 @@
 
 <script setup lang="ts">
 import { provide, ref, nextTick } from 'vue'
-import FmHeader from './fm-header/index.vue'
-import FmTabs from './fm-tabs/index.vue'
-import FmAside from './fm-aside/index.vue'
-import FmBreadcrumb from './fm-breadcrumb/index.vue'
+import FmHeader from '@/components/fm-header/index.vue'
+import FmTabs from '@/components/fm-tabs/index.vue'
+import FmAside from '@/components/fm-aside/index.vue'
 
 const collapsed = ref<boolean>(false)
 

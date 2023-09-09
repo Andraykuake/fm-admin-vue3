@@ -1,7 +1,13 @@
 <template>
-	<a-table rowKey="menu_id" :columns="columns" bordered :data-source="permissions" :scroll="{ y: 'calc(100vh - 340px)' }">
+	<a-table
+		rowKey="menu_id"
+		:columns="columns"
+		bordered
+		:data-source="permissions"
+		:scroll="{ y: 'calc(100vh - 340px)' }"
+	>
 		<template v-slot:headerCell="{ column }">
-			<span style="font-weight: bolder">{{ column.title }}</span>
+			<span style="font-weight: bolder;">{{ column.title }}</span>
 		</template>
 		<template v-slot:bodyCell="{ record, text, column }">
 			<template v-if="column.dataIndex == 'menu_type'">
@@ -15,9 +21,24 @@
 				</a-tag>
 			</template>
 			<template v-if="column.dataIndex == 'operation'">
-				<a-button class="table-opt" type="primary" size="small" @click="details(record)" ghost>详情</a-button>
-				<a-button class="table-opt" type="primary" size="small" @click="edit(record)">编辑</a-button>
-				<a-button class="table-opt" type="primary" size="small" danger>删除</a-button>
+				<a-button
+					class="table-opt"
+					type="primary"
+					size="small"
+					@click="details(record)"
+					ghost
+					>详情</a-button
+				>
+				<a-button
+					class="table-opt"
+					type="primary"
+					size="small"
+					@click="edit(record)"
+					>编辑</a-button
+				>
+				<a-button class="table-opt" type="primary" size="small" danger
+					>删除</a-button
+				>
 			</template>
 		</template>
 	</a-table>
@@ -38,7 +59,7 @@ const columns = reactive([
 ])
 
 onBeforeMount(() => {
-	loadPermissionList();
+	loadPermissionList()
 })
 
 /**

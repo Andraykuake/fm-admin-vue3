@@ -8,8 +8,8 @@
 <script setup lang="ts">
 import { onMounted, ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
-import FmLogo from './components/fm-logo/index.vue'
-import FmMenu from './components/fm-menu/index.vue'
+import FmLogo from '../fm-logo/index.vue'
+import FmMenu from '../fm-menu/index.vue'
 import { SysMenu } from '@/types/models'
 
 import api from '@/api/index'
