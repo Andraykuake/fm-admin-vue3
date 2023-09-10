@@ -12,7 +12,7 @@
 			<a-form-item label="菜单路由">
 				<a-input
 					style="width: 130px;"
-					v-model:value="param.menu_name"
+					v-model:value="param.url"
 					autocomplete="off"
 					placeholder="请输入菜单路由"
 				/>
@@ -25,6 +25,18 @@
 					style="width: 80px;"
 					:options="options"
 				></a-select>
+			</a-form-item>
+			<a-form-item>
+				<a-button type="primary" @click="search">
+					<template #icon><SearchOutlined /></template>
+					搜索
+				</a-button>
+			</a-form-item>
+			<a-form-item>
+				<a-button @click="reset">
+					<template #icon><reload-outlined /></template>
+					重置
+				</a-button>
 			</a-form-item>
 		</a-form>
 
@@ -41,10 +53,15 @@ import { ref } from 'vue'
 
 const param = ref({
 	menu_name: '',
+	url: '',
 	status: ''
 })
 
 const options = ref([
+	{
+		label: '全部',
+		value: ''
+	},
 	{
 		label: '显示',
 		value: 0
@@ -54,6 +71,16 @@ const options = ref([
 		value: 1
 	}
 ])
+
+const search = () => {
+	console.log('搜索菜单')
+}
+
+const reset = () => {
+	param.value.menu_name = ''
+	param.value.url = ''
+	param.value.status = ''
+}
 
 const emit = defineEmits(['addEvent'])
 const addMenu = () => {
