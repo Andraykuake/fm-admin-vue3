@@ -2,20 +2,20 @@
  * sys_menu
  */
 export interface SysMenu {
-    create_by: string;
-    create_time: string;
+    create_by?: string;
+    create_time?: string;
     icon: string;
-    is_refresh: string;
-    menu_id: number;
+    is_refresh?: string;
+    menu_id?: number | string;
     menu_name: string;
     menu_type: string;
-    order_num: number;
-    parent_id: number;
-    perms: null;
-    remark: string;
-    target: null;
-    update_by: null;
-    update_time: null;
+    order_num: number | string;
+    parent_id: number | string;
+    perms: number | string;
+    remark?: string;
+    target?: number | string;
+    update_by?: number | string;
+    update_time?: number | string;
     url: string;
     visible: string;
     children?: Array<SysMenu>
