@@ -28,7 +28,7 @@ const props = defineProps({
 const selectedKeys = ref<string[]>([])
 
 onMounted(() => {
-	api.sysPermission.querySysPermissionList({ type: 1 }).then((res) => {
+	api.sysMenu.querySysMenuList({ type: 1 }).then((res) => {
 		if (res.code == 200) {
 			console.log(res.data)
 			menus.value = res.data
