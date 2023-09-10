@@ -1,7 +1,7 @@
 import * as sysUser from './sys/User'
-import * as sysPermission from './sys/Menu'
+import * as sysMenu from './sys/Menu'
 
 export default {
   sysUser,
-  sysPermission
+  sysMenu
 }
