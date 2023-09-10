@@ -36,9 +36,19 @@
 					@click="edit(record)"
 					>编辑</a-button
 				>
-				<a-button class="table-opt" type="primary" size="small" danger
-					>删除</a-button
+				<a-popconfirm
+					title="确认删除吗？"
+					ok-text="确认"
+					cancel-text="取消"
+					@confirm="del(record.menu_id)"
 				>
+					<template #icon
+						><question-circle-outlined style="color: red;"
+					/></template>
+					<a-button class="table-opt" type="primary" size="small" danger
+						>删除</a-button
+					>
+				</a-popconfirm>
 			</template>
 		</template>
 	</a-table>
@@ -46,6 +56,7 @@
 
 <script setup lang="ts">
 import api from '@/api/index'
+import { message } from 'ant-design-vue'
 import { ref, reactive, onBeforeMount } from 'vue'
 import { SysMenu } from '@/types/models'
 const permissions = ref<SysMenu[]>([])
@@ -106,6 +117,21 @@ const edit = (row: any) => {
 }
 const details = (row: any) => {
 	emit('detailsEvent', row)
+}
+
+/**
+ * 根据id删除菜单
+ * @param id
+ */
+const del = async (id: number) => {
+	const { data, message: msg } = await api.sysMenu.deleteSysMenuById(id)
+	if (data) {
+		message.success(msg)
+		// loadMenuList()
+		location.reload()
+	} else {
+		message.error(msg)
+	}
 }
 
 defineExpose({

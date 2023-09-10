@@ -9,8 +9,8 @@ import { SysMenu } from '@/types/models'
 
 const baseURL = '/api/v1'
 
-export function deleteSysMenuById(data: any) {
-  return del(baseURL + '/menu/delete', data)
+export function deleteSysMenuById(id: number) {
+  return del(baseURL + '/menu/delete', { data: { id } })
 }
 
 export function querySysMenuList(data: any) {
