@@ -44,6 +44,14 @@
 					/>
 				</a-form-item>
 
+				<a-form-item label="菜单图标">
+					<a-input
+						v-model:value="data.perms"
+						autocomplete="off"
+						placeholder="请输入菜单图标"
+					/>
+				</a-form-item>
+
 				<a-form-item label="菜单路由">
 					<a-input
 						v-model:value="data.url"
@@ -172,7 +180,11 @@ const handleOk = () => {
  * 保存菜单数据，添加或修改
  */
 const saveMenu = () => {
-	api.sysMenu.updateSysMenu(props.data).then((res) => {
+	const http =
+		props.title == '添加菜单'
+			? api.sysMenu.addSysMenu
+			: api.sysMenu.updateSysMenu
+	http(props.data).then((res) => {
 		if (res.data == true) {
 			message.success(res.message)
 			emit('saveCallback')
