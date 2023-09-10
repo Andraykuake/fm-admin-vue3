@@ -5,35 +5,49 @@
 				<a-button key="back" @click="handleClose">关闭</a-button>
 			</template>
 
-			<a-form :model="data" name="basic" :label-col="{ span: 5 }" :wrapper-col="{ span: 19 }" autocomplete="off">
-				<a-form-item label="权限名称">
-					<span>{{ data.menu_name }}</span>
-				</a-form-item>
-				<a-form-item label="权限路由">
-					<span>{{ data.url }}</span>
-				</a-form-item>
-				<a-form-item label="权限标识">
-					<span>{{ data.perms }}</span>
-				</a-form-item>
-				<a-form-item label="权限类型">
-					<a-tag :color="getColumnType(data.menu_type).color">
-						{{ getColumnType(data.menu_type).text }}
-					</a-tag>
-				</a-form-item>
-				<a-form-item label="权限状态">
-					<a-tag :color="data.status === 0 ? 'green' : 'volcano'">
-						{{ data.status == 0 ? '显示' : '隐藏' }}
-					</a-tag>
-				</a-form-item>
-				<a-form-item label="权限排序">
-					<span>{{ data.order_num }}</span>
-				</a-form-item>
-				<a-form-item label="创建时间">
-					<span>{{ data.create_time }}</span>
-				</a-form-item>
-				<a-form-item label="更新时间">
-					<span>{{ data.update_time }}</span>
-				</a-form-item>
+			<a-form :model="data" name="basic">
+				<a-row :gutter="12">
+					<a-col :span="12">
+						<a-form-item label="权限名称">
+							<span>{{ data.menu_name }}</span>
+						</a-form-item>
+					</a-col>
+					<a-col :span="12">
+						<a-form-item label="权限路由">
+							<span>{{ data.url }}</span>
+						</a-form-item>
+					</a-col>
+				</a-row>
+
+				<a-row :gutter="12">
+					<a-col :span="12">
+						<a-form-item label="权限标识">
+							<span>{{ data.perms }}</span>
+						</a-form-item>
+					</a-col>
+					<a-col :span="12">
+						<a-form-item label="权限类型">
+							<a-tag :color="getColumnType(data.menu_type).color">
+								{{ getColumnType(data.menu_type).text }}
+							</a-tag>
+						</a-form-item>
+					</a-col>
+				</a-row>
+
+				<a-row :gutter="12">
+					<a-col :span="12">
+						<a-form-item label="权限状态">
+							<a-tag :color="data.visible === 0 ? 'green' : 'volcano'">
+								{{ data.visible == 0 ? '显示' : '隐藏' }}
+							</a-tag>
+						</a-form-item>
+					</a-col>
+					<a-col :span="12">
+						<a-form-item label="权限排序">
+							<span>{{ data.order_num }}</span>
+						</a-form-item>
+					</a-col>
+				</a-row>
 			</a-form>
 		</a-modal>
 	</div>
@@ -72,15 +86,15 @@ const handleClose = () => {
  * 获取权限类型列所对应的，颜色和文本
  * @param value
  */
-const getColumnType = (value: Number) => {
+const getColumnType = (value: String) => {
 	const column = {
 		color: 'volcano',
 		text: '按钮'
 	}
-	if (value == 0) {
+	if (value == 'M') {
 		column.color = 'green'
 		column.text = '目录'
-	} else if (value == 1) {
+	} else if (value == 'C') {
 		column.color = 'geekblue'
 		column.text = '菜单'
 	}
