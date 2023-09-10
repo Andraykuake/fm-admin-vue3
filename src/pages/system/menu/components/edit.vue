@@ -122,7 +122,7 @@ const menuList = ref([
 ])
 
 /**
- * 加载权限表格数据
+ * 加载菜单表格数据
  */
 const loadMenuList = () => {
 	api.sysMenu.querySysMenuList({ type: 3 }).then(({ code, data }) => {
