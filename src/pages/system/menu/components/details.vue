@@ -8,12 +8,12 @@
 			<a-form :model="data" name="basic">
 				<a-row :gutter="12">
 					<a-col :span="12">
-						<a-form-item label="权限名称">
+						<a-form-item label="菜单名称">
 							<span>{{ data.menu_name }}</span>
 						</a-form-item>
 					</a-col>
 					<a-col :span="12">
-						<a-form-item label="权限路由">
+						<a-form-item label="菜单路由">
 							<span>{{ data.url }}</span>
 						</a-form-item>
 					</a-col>
@@ -21,12 +21,12 @@
 
 				<a-row :gutter="12">
 					<a-col :span="12">
-						<a-form-item label="权限标识">
+						<a-form-item label="菜单标识">
 							<span>{{ data.perms }}</span>
 						</a-form-item>
 					</a-col>
 					<a-col :span="12">
-						<a-form-item label="权限类型">
+						<a-form-item label="菜单类型">
 							<a-tag :color="getColumnType(data.menu_type).color">
 								{{ getColumnType(data.menu_type).text }}
 							</a-tag>
@@ -36,14 +36,14 @@
 
 				<a-row :gutter="12">
 					<a-col :span="12">
-						<a-form-item label="权限状态">
+						<a-form-item label="菜单状态">
 							<a-tag :color="data.visible === 0 ? 'green' : 'volcano'">
 								{{ data.visible == 0 ? '显示' : '隐藏' }}
 							</a-tag>
 						</a-form-item>
 					</a-col>
 					<a-col :span="12">
-						<a-form-item label="权限排序">
+						<a-form-item label="菜单排序">
 							<span>{{ data.order_num }}</span>
 						</a-form-item>
 					</a-col>
@@ -83,7 +83,7 @@ const handleClose = () => {
 }
 
 /**
- * 获取权限类型列所对应的，颜色和文本
+ * 获取菜单类型列所对应的，颜色和文本
  * @param value
  */
 const getColumnType = (value: String) => {
