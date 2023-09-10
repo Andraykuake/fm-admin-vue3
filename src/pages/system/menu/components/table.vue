@@ -50,11 +50,11 @@ import { ref, reactive, onBeforeMount } from 'vue'
 import { SysMenu } from '@/types/models'
 const permissions = ref<SysMenu[]>([])
 const columns = reactive([
-	{ title: '权限名称', align: 'center', dataIndex: 'menu_name' },
-	{ title: '权限路由', align: 'center', dataIndex: 'url', width: '30' },
-	{ title: '权限标识', align: 'center', dataIndex: 'perms', width: '20%' },
-	{ title: '权限类型', align: 'center', dataIndex: 'menu_type', width: '10%' },
-	{ title: '权限状态', align: 'center', dataIndex: 'visible', width: '10%' },
+	{ title: '菜单名称', align: 'center', dataIndex: 'menu_name' },
+	{ title: '菜单路由', align: 'center', dataIndex: 'url', width: '30' },
+	{ title: '菜单标识', align: 'center', dataIndex: 'perms', width: '20%' },
+	{ title: '菜单类型', align: 'center', dataIndex: 'menu_type', width: '10%' },
+	{ title: '菜单状态', align: 'center', dataIndex: 'visible', width: '10%' },
 	{ title: '操作', align: 'center', dataIndex: 'operation', width: '209px' }
 ])
 
@@ -63,7 +63,7 @@ onBeforeMount(() => {
 })
 
 /**
- * 加载权限表格数据
+ * 加载菜单表格数据
  */
 const loadMenuList = () => {
 	api.sysMenu
@@ -79,7 +79,7 @@ const loadMenuList = () => {
 }
 
 /**
- * 获取权限类型列所对应的，颜色和文本
+ * 获取菜单类型列所对应的，颜色和文本
  * @param value
  */
 const getColumnType = (value: String) => {
