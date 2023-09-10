@@ -1,11 +1,7 @@
 <template>
 	<div class="main-box">
-		<Table
-			ref="tableRef"
-			@detailsEvent="detailsEvent"
-			@editEvent="editEvent"
-			@addEvent="addEvent"
-		/>
+		<Header @addEvent="addEvent" />
+		<Table ref="tableRef" @detailsEvent="detailsEvent" @editEvent="editEvent" />
 		<Edit
 			v-model:visible="editVisible"
 			:data="editData"
@@ -17,6 +13,7 @@
 </template>
 <script setup lang="ts">
 import { ref } from 'vue'
+import Header from './components/head.vue'
 import Table from './components/table.vue'
 import Edit from './components/edit.vue'
 import Details from './components/details.vue'
@@ -27,7 +24,7 @@ import { SysMenu } from '@/types/models'
  */
 const detailsVisible = ref(false)
 const detailsData = ref({})
-const detailsEvent = (data: Object) => {
+const detailsEvent = (data: SysMenu) => {
 	detailsVisible.value = true
 	detailsData.value = { ...data }
 }
@@ -47,10 +44,24 @@ const editEvent = (data: SysMenu) => {
 /**
  * 添加
  */
-const addEvent = (data: SysMenu) => {
+const addEvent = () => {
 	title.value = '添加菜单'
 	editVisible.value = true
-	editData.value = data
+	editData.value = {
+		create_by: '',
+		create_time: '',
+		icon: '',
+		is_refresh: '',
+		menu_name: '',
+		menu_type: 'M',
+		order_num: 0,
+		parent_id: 0,
+		perms: '',
+		remark: '',
+		target: '',
+		url: '',
+		visible: '0'
+	}
 }
 
 /**
