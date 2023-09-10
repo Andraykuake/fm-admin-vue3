@@ -9,7 +9,7 @@ type HttpResult<T = any> = {
 }
 
 let baseURL = import.meta.env.VUE_APP_BASE_URL;
-baseURL = 'http://localhost:3001';
+baseURL = '';
 
 const http = axios.create({
   baseURL,
