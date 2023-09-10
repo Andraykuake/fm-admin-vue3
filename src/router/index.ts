@@ -32,6 +32,11 @@ const routes: RouteRecordRaw[] = [
 				path: '/system/menu',
 				name: '菜单管理',
 				component: () => import('@/pages/system/menu/index.vue')
+			},
+			{
+				path: '/system/icon',
+				name: '系统图标',
+				component: () => import('@/pages/system/icon/index.vue')
 			}
 		]
 	},

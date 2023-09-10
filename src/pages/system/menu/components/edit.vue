@@ -46,7 +46,7 @@
 
 				<a-form-item label="菜单图标">
 					<a-input
-						v-model:value="data.perms"
+						v-model:value="data.icon"
 						autocomplete="off"
 						placeholder="请输入菜单图标"
 					/>
@@ -187,6 +187,7 @@ const saveMenu = () => {
 	http(props.data).then((res) => {
 		if (res.data == true) {
 			message.success(res.message)
+			location.reload()
 			emit('saveCallback')
 		}
 	})
