@@ -5,28 +5,30 @@ import {
   del
 } from '@/config/http.config'
 
+import { SysMenu } from '@/types/models'
+
 const baseURL = '/api/v1'
 
-export function deleteSysPermissionById(data: any) {
+export function deleteSysMenuById(data: any) {
   return del(baseURL + '/menu/delete', data)
 }
 
-export function querySysPermissionList(data: any = {}) {
+export function querySysMenuList(data: any) {
   return get(baseURL + '/menu/list', { params: data })
 }
 
-export function querySysPermissionById(data: any) {
+export function querySysMenuById(data: any) {
   return get(baseURL + '/menu/single', data)
 }
 
-export function querySysPermissionByRoleId(data: any) {
+export function querySysMenuByRoleId(data: any) {
   return get(baseURL + '/menu/listByRoleId', data)
 }
 
-export function addSysPermission(data: any) {
+export function addSysMenu(data: SysMenu) {
   return post(baseURL + '/menu/add', data)
 }
 
-export function updateSysPermission(data: any) {
+export function updateSysMenu(data: SysMenu) {
   return put(baseURL + '/menu/update', data)
 }
