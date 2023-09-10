@@ -59,15 +59,15 @@ const columns = reactive([
 ])
 
 onBeforeMount(() => {
-	loadPermissionList()
+	loadMenuList()
 })
 
 /**
  * 加载权限表格数据
  */
-const loadPermissionList = () => {
-	api.sysPermission
-		.querySysPermissionList({
+const loadMenuList = () => {
+	api.sysMenu
+		.querySysMenuList({
 			params: { type: 3 }
 		})
 		.then(({ code, data }) => {
@@ -82,15 +82,15 @@ const loadPermissionList = () => {
  * 获取权限类型列所对应的，颜色和文本
  * @param value
  */
-const getColumnType = (value: Number) => {
+const getColumnType = (value: String) => {
 	const column = {
 		color: 'volcano',
 		text: '按钮'
 	}
-	if (value == 0) {
+	if (value == 'M') {
 		column.color = 'green'
 		column.text = '目录'
-	} else if (value == 1) {
+	} else if (value == 'C') {
 		column.color = 'geekblue'
 		column.text = '菜单'
 	}
@@ -107,6 +107,10 @@ const edit = (row: any) => {
 const details = (row: any) => {
 	emit('detailsEvent', row)
 }
+
+defineExpose({
+	refresh: loadMenuList
+})
 </script>
 
 <style>
