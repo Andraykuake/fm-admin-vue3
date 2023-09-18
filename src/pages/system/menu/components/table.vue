@@ -87,7 +87,13 @@ const columns = reactive([
 		width: '100px'
 	},
 	{ title: '菜单状态', align: 'center', dataIndex: 'visible', width: '100px' },
-	{ title: '操作', align: 'center', dataIndex: 'operation', width: '209px' }
+	{
+		title: '操作',
+		align: 'center',
+		dataIndex: 'operation',
+		width: '209px',
+		fixed: 'right'
+	}
 ])
 
 onBeforeMount(() => {
