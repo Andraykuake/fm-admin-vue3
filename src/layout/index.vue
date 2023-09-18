@@ -6,11 +6,12 @@
 			<!-- 头部内容 -->
 			<fm-header v-model:collapsed="collapsed" />
 			<!-- 标签导航 -->
-			<fm-tabs />
-			<!-- 主内容区 -->
-			<a-layout-content>
-				<router-view v-if="isRouterAlive"></router-view>
-			</a-layout-content>
+			<fm-tabs>
+				<!-- 主内容区 -->
+				<a-layout-content>
+					<router-view v-if="isRouterAlive"></router-view>
+				</a-layout-content>
+			</fm-tabs>
 		</a-layout>
 	</a-layout>
 </template>
@@ -51,7 +52,9 @@ provide('reloadRouter', reloadRouter)
 		margin: 1rem;
 		padding: 1rem;
 		background: #fff;
-		min-height: 280px;
+		height: calc(100vh - 170px);
+		overflow-y: scroll;
+		box-sizing: border-box;
 	}
 }
 </style>
