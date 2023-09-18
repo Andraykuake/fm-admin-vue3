@@ -1,5 +1,12 @@
 <template>
-	<a-tabs type="editable-card" size="small" hide-add :activeKey="activeTab.path" @edit="handleTabEdit" @change="change">
+	<a-tabs
+		type="editable-card"
+		size="small"
+		hide-add
+		:activeKey="activeTab.path"
+		@edit="handleTabEdit"
+		@change="change"
+	>
 		<template #rightExtra>
 			<div class="more-opt">
 				<a-dropdown :trigger="['click']">
@@ -8,8 +15,12 @@
 					</a>
 					<template #overlay>
 						<a-menu>
-							<a-menu-item @click="closeOtherTab" :disabled="tabs.length <= 1"> 关闭其它 </a-menu-item>
-							<a-menu-item @click="closeTabByKey(activeTab.path)"> 关闭当前 </a-menu-item>
+							<a-menu-item @click="closeOtherTab" :disabled="tabs.length <= 1">
+								关闭其它
+							</a-menu-item>
+							<a-menu-item @click="closeTabByKey(activeTab.path)">
+								关闭当前
+							</a-menu-item>
 							<a-menu-item @click="closeAllTab"> 关闭全部 </a-menu-item>
 							<a-menu-item @click="reloadRouter"> 刷新当前页 </a-menu-item>
 						</a-menu>
@@ -17,7 +28,16 @@
 				</a-dropdown>
 			</div>
 		</template>
-		<a-tab-pane v-for="tab in tabs" :key="tab.path" :tab="tab.name" :closable="tabs.length > 1"> </a-tab-pane>
+		<a-tab-pane
+			v-for="tab in tabs"
+			:key="tab.path"
+			:tab="tab.name"
+			:closable="tabs.length > 1"
+		>
+			<keep-alive>
+				<slot></slot>
+			</keep-alive>
+		</a-tab-pane>
 	</a-tabs>
 </template>
 
@@ -67,11 +87,14 @@ const reloadRouter = inject('reloadRouter')
 
 <style lang="scss" scoped>
 .ant-tabs {
-	margin-top: 3px;
-	padding: 0.5rem 1rem;
+	margin-top: 5px;
 	background: #fff;
-	.ant-tabs-tab {
-		margin-right: 0.3rem;
+	:deep(.ant-tabs-nav) {
+		padding: 1rem;
+		margin: 0px;
+	}
+	:deep(.ant-tabs-content) {
+		background: #f0f2f5;
 	}
 	.more-opt {
 		margin-bottom: 0.5rem;
