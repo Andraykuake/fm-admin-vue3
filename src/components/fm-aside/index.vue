@@ -48,4 +48,8 @@ watch(
 	}
 )
 </script>
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.ant-layout-sider {
+	user-select: none;
+}
+</style>
