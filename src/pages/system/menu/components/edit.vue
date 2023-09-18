@@ -45,11 +45,7 @@
 				</a-form-item>
 
 				<a-form-item label="菜单图标">
-					<a-input
-						v-model:value="data.icon"
-						autocomplete="off"
-						placeholder="请输入菜单图标"
-					/>
+					<fm-select-icon v-model:value="data.icon" allowClear></fm-select-icon>
 				</a-form-item>
 
 				<a-form-item label="菜单路由">
@@ -97,6 +93,7 @@
 <script setup lang="ts">
 import { message } from 'ant-design-vue'
 import { ref, computed, onMounted, watch } from 'vue'
+import FmSelectIcon from '@/components/fm-select-icon/index.vue'
 import { SysMenu } from '@/types/models'
 import api from '@/api'
 const props = defineProps({
