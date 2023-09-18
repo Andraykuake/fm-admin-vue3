@@ -9,7 +9,14 @@
 			<fm-tabs>
 				<!-- 主内容区 -->
 				<a-layout-content>
-					<router-view v-if="isRouterAlive"></router-view>
+					<router-view v-if="isRouterAlive" v-slot="{ Component }">
+						<!-- 需要缓存 -->
+						<keep-alive v-if="$route.meta.keepAlive">
+							<component :is="Component" />
+						</keep-alive>
+						<!-- 不需要缓存 -->
+						<component :is="Component" v-else />
+					</router-view>
 				</a-layout-content>
 			</fm-tabs>
 		</a-layout>

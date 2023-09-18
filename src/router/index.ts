@@ -5,7 +5,7 @@ const routes: RouteRecordRaw[] = [
 	{
 		meta: {
 			title: '飞码技术社区后台管理系统',
-			keywords: 'Fly Code Ape'
+			keywords: 'Fly Code Ape',
 		},
 		path: '/',
 		name: '首页',
@@ -31,6 +31,7 @@ const routes: RouteRecordRaw[] = [
 			{
 				path: '/system/menu',
 				name: '菜单管理',
+				meta: { keepAlive: true }, // 启用缓存
 				component: () => import('@/pages/system/menu/index.vue')
 			},
 			{
