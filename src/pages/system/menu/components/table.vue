@@ -10,6 +10,16 @@
 			<span style="font-weight: bolder;">{{ column.title }}</span>
 		</template>
 		<template v-slot:bodyCell="{ record, text, column }">
+			<template v-if="column.dataIndex == 'icon' && text != '#'">
+				<component
+					:is="text"
+					style="
+						 {
+							font-size: 26px;
+						}
+					"
+				/>
+			</template>
 			<template v-if="column.dataIndex == 'menu_type'">
 				<a-tag :color="getColumnType(text).color">
 					{{ getColumnType(text).text }}
@@ -61,11 +71,22 @@ import { ref, reactive, onBeforeMount } from 'vue'
 import { SysMenu } from '@/types/models'
 const permissions = ref<SysMenu[]>([])
 const columns = reactive([
-	{ title: '菜单名称', align: 'center', dataIndex: 'menu_name' },
-	{ title: '菜单路由', align: 'center', dataIndex: 'url', width: '30' },
-	{ title: '菜单标识', align: 'center', dataIndex: 'perms', width: '20%' },
-	{ title: '菜单类型', align: 'center', dataIndex: 'menu_type', width: '10%' },
-	{ title: '菜单状态', align: 'center', dataIndex: 'visible', width: '10%' },
+	{
+		title: '菜单名称',
+		align: 'center',
+		dataIndex: 'menu_name',
+		width: '120px'
+	},
+	{ title: '菜单图标', align: 'center', dataIndex: 'icon', width: '120px' },
+	{ title: '菜单路由', align: 'center', dataIndex: 'url', width: '120px' },
+	{ title: '菜单标识', align: 'center', dataIndex: 'perms', width: '120px' },
+	{
+		title: '菜单类型',
+		align: 'center',
+		dataIndex: 'menu_type',
+		width: '100px'
+	},
+	{ title: '菜单状态', align: 'center', dataIndex: 'visible', width: '100px' },
 	{ title: '操作', align: 'center', dataIndex: 'operation', width: '209px' }
 ])
 
