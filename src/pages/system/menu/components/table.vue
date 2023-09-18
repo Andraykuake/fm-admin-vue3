@@ -97,16 +97,17 @@ const columns = reactive([
 ])
 
 onBeforeMount(() => {
-	loadMenuList()
+	loadMenuList({ type: 3 })
 })
 
 /**
  * 加载菜单表格数据
  */
-const loadMenuList = () => {
+const loadMenuList = (params: object) => {
+	console.log(params)
 	api.sysMenu
 		.querySysMenuList({
-			params: { type: 3 }
+			...params
 		})
 		.then(({ code, data }) => {
 			if (code == 200) {

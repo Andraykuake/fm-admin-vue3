@@ -1,9 +1,9 @@
 <template>
 	<div class="main-box-head">
-		<a-form :model="param" name="basic" layout="inline">
+		<a-form :model="params" name="basic" layout="inline">
 			<a-form-item label="菜单名称">
 				<a-input
-					v-model:value="param.menu_name"
+					v-model:value="params.menuName"
 					style="width: 130px;"
 					autocomplete="off"
 					placeholder="请输入菜单名称"
@@ -12,14 +12,14 @@
 			<a-form-item label="菜单路由">
 				<a-input
 					style="width: 130px;"
-					v-model:value="param.url"
+					v-model:value="params.url"
 					autocomplete="off"
 					placeholder="请输入菜单路由"
 				/>
 			</a-form-item>
 			<a-form-item label="菜单状态">
 				<a-select
-					v-model:value="param.status"
+					v-model:value="params.visible"
 					show-search
 					placeholder="选择状态"
 					style="width: 80px;"
@@ -51,10 +51,10 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 
-const param = ref({
-	menu_name: '',
+const params = ref({
+	menuName: '',
 	url: '',
-	status: ''
+	visible: ''
 })
 
 const options = ref([
@@ -72,19 +72,18 @@ const options = ref([
 	}
 ])
 
-const search = () => {
-	console.log('搜索菜单')
-}
-
 const reset = () => {
-	param.value.menu_name = ''
-	param.value.url = ''
-	param.value.status = ''
+	params.value.menuName = ''
+	params.value.url = ''
+	params.value.visible = ''
 }
 
-const emit = defineEmits(['addEvent'])
+const emit = defineEmits(['addEvent', 'searchEvent'])
 const addMenu = () => {
 	emit('addEvent')
+}
+const search = () => {
+	emit('searchEvent', params.value)
 }
 </script>
 

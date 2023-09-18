@@ -1,6 +1,6 @@
 <template>
 	<div class="main-box">
-		<Header @addEvent="addEvent" />
+		<Header @addEvent="addEvent" @searchEvent="searchEvent" />
 		<Table ref="tableRef" @detailsEvent="detailsEvent" @editEvent="editEvent" />
 		<Edit
 			v-model:visible="editVisible"
@@ -63,6 +63,13 @@ const addEvent = () => {
 		visible: '0'
 	}
 }
+
+/**
+ * 搜索菜单时的回调函数
+ * @param params
+ */
+const searchEvent = (params: object) =>
+	tableRef.value.refresh({ type: 3, ...params })
 
 /**
  * 保存回调函数，用于保存成功后，刷新菜单列表
