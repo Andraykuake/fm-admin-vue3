@@ -83,7 +83,7 @@ watch(
 	() => props.menus,
 	(value: Array<SysMenu>) => {
 		value.map((menu) => {
-			rootSubmenuKeys.value.push(menu.menu_name)
+			rootSubmenuKeys.value.push(menu.menuName)
 		})
 	}
 )

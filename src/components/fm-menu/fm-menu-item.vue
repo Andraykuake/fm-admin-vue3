@@ -1,17 +1,17 @@
 <template>
 	<template v-for="menu in menus">
 		<template v-if="!hasSubMenu(menu)">
-			<a-menu-item :key="menu.menu_name">
+			<a-menu-item :key="menu.menuName">
 				<router-link :to="menu.url || ''">
 					<component :is="menu.icon" />
-					<span>{{ menu.menu_name }}</span>
+					<span>{{ menu.menuName }}</span>
 				</router-link>
 			</a-menu-item>
 		</template>
 		<template v-else>
-			<a-sub-menu :key="menu.menu_name">
+			<a-sub-menu :key="menu.menuName">
 				<template #icon> <component :is="menu.icon" /> </template>
-				<template #title>{{ menu.menu_name }}</template>
+				<template #title>{{ menu.menuName }}</template>
 				<fm-menu-item :menus="menu.children" />
 			</a-sub-menu>
 		</template>
