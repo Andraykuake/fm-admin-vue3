@@ -57,6 +57,7 @@ input, textarea, button {
 /* 针对不同浏览器的前缀 */
 ::-webkit-scrollbar {
   width: 6px;
+	height: 6px;
 }
 
 ::-webkit-scrollbar-track {
@@ -71,10 +72,10 @@ input, textarea, button {
 /* 针对Firefox浏览器 */
 /* Firefox 使用单独的伪类选择器来自定义滚动条 */
 /* 请注意，不同版本的Firefox可能有不同的伪类选择器 */
-/* * {
+* {
   scrollbar-width: thin;
   scrollbar-color: #888 #f0f0f0;
-} */
+}
 
 /* 为滚动条轨道设置背景色 */
 /* 这适用于Edge浏览器 */
