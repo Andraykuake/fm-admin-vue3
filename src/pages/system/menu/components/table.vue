@@ -1,6 +1,6 @@
 <template>
 	<a-table
-		rowKey="menu_id"
+		rowKey="menuId"
 		:columns="columns"
 		bordered
 		:data-source="permissions"
@@ -20,7 +20,7 @@
 					"
 				/>
 			</template>
-			<template v-if="column.dataIndex == 'menu_type'">
+			<template v-if="column.dataIndex == 'menuType'">
 				<a-tag :color="getColumnType(text).color">
 					{{ getColumnType(text).text }}
 				</a-tag>
@@ -74,7 +74,7 @@ const columns = reactive([
 	{
 		title: '菜单名称',
 		align: 'center',
-		dataIndex: 'menu_name',
+		dataIndex: 'menuName',
 		width: '120px'
 	},
 	{ title: '菜单图标', align: 'center', dataIndex: 'icon', width: '120px' },
@@ -83,7 +83,7 @@ const columns = reactive([
 	{
 		title: '菜单类型',
 		align: 'center',
-		dataIndex: 'menu_type',
+		dataIndex: 'menuType',
 		width: '100px'
 	},
 	{ title: '菜单状态', align: 'center', dataIndex: 'visible', width: '100px' },

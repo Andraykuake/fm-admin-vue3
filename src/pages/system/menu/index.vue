@@ -48,14 +48,14 @@ const addEvent = () => {
 	title.value = '添加菜单'
 	editVisible.value = true
 	editData.value = {
-		create_by: '',
-		create_time: '',
+		createBy: '',
+		createTime: '',
 		icon: '',
-		is_refresh: '',
-		menu_name: '',
-		menu_type: 'M',
-		order_num: 0,
-		parent_id: 0,
+		isRefresh: '',
+		menuName: '',
+		menuType: 'M',
+		orderNum: 0,
+		parentId: 0,
 		perms: '',
 		remark: '',
 		target: '',

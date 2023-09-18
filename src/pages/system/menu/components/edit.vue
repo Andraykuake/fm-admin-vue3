@@ -12,7 +12,7 @@
 			<a-form :model="data" name="basic" v-bind="layout">
 				<a-form-item label="菜单父级" :rules="[{ required: true }]">
 					<a-tree-select
-						v-model:value="data.parent_id"
+						v-model:value="data.parentId"
 						:treeData="menuList"
 						placeholder="请选择"
 						allow-clear
@@ -38,7 +38,7 @@
 
 				<a-form-item label="菜单名称" :rules="[{ required: true }]">
 					<a-input
-						v-model:value="data.menu_name"
+						v-model:value="data.menuName"
 						autocomplete="off"
 						placeholder="请输入菜单名称"
 					/>
@@ -65,7 +65,7 @@
 				</a-form-item>
 
 				<a-form-item label="菜单类型" :rules="[{ required: true }]">
-					<a-radio-group v-model:value="data.menu_type">
+					<a-radio-group v-model:value="data.menuType">
 						<a-radio value="M">目录</a-radio>
 						<a-radio value="C">菜单</a-radio>
 						<a-radio value="F">按钮</a-radio>
@@ -82,7 +82,7 @@
 				<a-form-item label="显示排序">
 					<a-input-number
 						id="inputNumber"
-						v-model:value="data.order_num"
+						v-model:value="data.orderNum"
 						placeholder="请输入排序值"
 					/>
 				</a-form-item>
