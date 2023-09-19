@@ -36,6 +36,7 @@ declare module 'vue' {
     ATabPane: typeof import('ant-design-vue/es')['TabPane']
     ATabs: typeof import('ant-design-vue/es')['Tabs']
     ATag: typeof import('ant-design-vue/es')['Tag']
+    ATextarea: typeof import('ant-design-vue/es')['Textarea']
     ATreeNode: typeof import('ant-design-vue/es')['TreeNode']
     ATreeSelect: typeof import('ant-design-vue/es')['TreeSelect']
     FmAside: typeof import('./src/components/fm-aside/index.vue')['default']
