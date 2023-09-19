@@ -3,7 +3,7 @@
 		rowKey="menuId"
 		:columns="columns"
 		bordered
-		:pagination="{ pageSize: 20 }"
+		:pagination="{ pageSize: 50 }"
 		:data-source="permissions"
 	>
 		<template v-slot:headerCell="{ column }">
