@@ -3,8 +3,8 @@
 		rowKey="menuId"
 		:columns="columns"
 		bordered
+		:pagination="{ pageSize: 20 }"
 		:data-source="permissions"
-		:scroll="{ y: 'calc(100vh - 340px)' }"
 	>
 		<template v-slot:headerCell="{ column }">
 			<span style="font-weight: bolder;">{{ column.title }}</span>
