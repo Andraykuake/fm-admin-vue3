@@ -4,22 +4,25 @@ import {
   put,
   del
 } from '@/config/http.config'
+import { SysUser } from '@/types/models'
 
-export function deleteSysUserById(data: any) {
-  return del('/admin/sysUser/delete', data)
+const baseURL = '/api/v1'
+
+export function deleteSysUserById(id: number) {
+  return del(baseURL + '/user/delete', { data: { id } })
 }
 
 export function querySysUserList(data: any) {
-  return get('/admin/sysUser/list', data)
+  return get(baseURL + '/user/list', { params: data })
 }
 
 export function querySysUserById(data: any) {
-  return post('/admin/sysUser/single', data)
+  return post(baseURL + '/user/single', data)
 }
-export function addSysUser(data: any) {
-  return post('/admin/sysUser/add', data)
+export function addSysUser(data: SysUser) {
+  return post(baseURL + '/user/add', data)
 }
 
-export function updateSysUser(data: any) {
-  return put('/admin/sysUser/update', data)
+export function updateSysUser(data: SysUser) {
+  return put(baseURL + '/user/update', data)
 }
