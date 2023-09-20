@@ -5,6 +5,7 @@
 		bordered
 		:pagination="{ pageSize: 50 }"
 		:data-source="permissions"
+		:scroll="{ y: true }"
 	>
 		<template v-slot:headerCell="{ column }">
 			<span style="font-weight: bolder;">{{ column.title }}</span>
@@ -77,16 +78,17 @@ const columns = reactive([
 		dataIndex: 'menuName',
 		width: '120px'
 	},
-	{ title: '菜单图标', align: 'center', dataIndex: 'icon', width: '120px' },
-	{ title: '菜单路由', align: 'center', dataIndex: 'url', width: '120px' },
-	{ title: '菜单标识', align: 'center', dataIndex: 'perms', width: '120px' },
+	{ title: '图标', align: 'center', dataIndex: 'icon', width: '60px' },
+	{ title: '排序', align: 'center', dataIndex: 'orderNum', width: '60px' },
+	{ title: '路由', align: 'center', dataIndex: 'url', width: '120px' },
+	{ title: '标识', align: 'center', dataIndex: 'perms', width: '120px' },
 	{
-		title: '菜单类型',
+		title: '类型',
 		align: 'center',
 		dataIndex: 'menuType',
-		width: '100px'
+		width: '60px'
 	},
-	{ title: '菜单状态', align: 'center', dataIndex: 'visible', width: '100px' },
+	{ title: '状态', align: 'center', dataIndex: 'visible', width: '60px' },
 	{
 		title: '操作',
 		align: 'center',
