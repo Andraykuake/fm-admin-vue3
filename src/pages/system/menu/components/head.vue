@@ -4,17 +4,19 @@
 			<a-form-item label="菜单名称">
 				<a-input
 					v-model:value="params.menuName"
-					style="width: 130px;"
+					style="width: 130px"
 					autocomplete="off"
 					placeholder="请输入菜单名称"
+					@keyup.enter="search"
 				/>
 			</a-form-item>
 			<a-form-item label="菜单路由">
 				<a-input
-					style="width: 130px;"
+					style="width: 130px"
 					v-model:value="params.url"
 					autocomplete="off"
 					placeholder="请输入菜单路由"
+					@keyup.enter="search"
 				/>
 			</a-form-item>
 			<a-form-item label="菜单状态">
@@ -22,7 +24,7 @@
 					v-model:value="params.visible"
 					show-search
 					placeholder="选择状态"
-					style="width: 80px;"
+					style="width: 80px"
 					:options="options"
 				></a-select>
 			</a-form-item>
