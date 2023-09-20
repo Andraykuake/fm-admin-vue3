@@ -4,25 +4,28 @@
 			<a-form-item label="用户名称">
 				<a-input
 					v-model:value="params.userName"
-					style="width: 130px;"
+					style="width: 130px"
 					autocomplete="off"
 					placeholder="请输入用户名称"
+					@keyup.enter="search"
 				/>
 			</a-form-item>
 			<a-form-item label="登录名称">
 				<a-input
-					style="width: 130px;"
+					style="width: 130px"
 					v-model:value="params.loginName"
 					autocomplete="off"
 					placeholder="请输入登录名称"
+					@keyup.enter="search"
 				/>
 			</a-form-item>
 			<a-form-item label="手机号码">
 				<a-input-number
-					style="width: 130px;"
+					style="width: 130px"
 					v-model:value="params.phoneNumber"
 					autocomplete="off"
 					placeholder="请输入手机号码"
+					@keyup.enter="search"
 				/>
 			</a-form-item>
 			<a-form-item label="用户状态">
@@ -30,7 +33,7 @@
 					v-model:value="params.status"
 					show-search
 					placeholder="选择状态"
-					style="width: 80px;"
+					style="width: 80px"
 					:options="options"
 				></a-select>
 			</a-form-item>
