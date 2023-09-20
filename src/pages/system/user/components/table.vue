@@ -8,7 +8,7 @@
 		:scroll="{ y: true }"
 	>
 		<template v-slot:headerCell="{ column }">
-			<span style="font-weight: bolder;">{{ column.title }}</span>
+			<span style="font-weight: bolder">{{ column.title }}</span>
 		</template>
 		<template v-slot:bodyCell="{ record, text, column }">
 			<template v-if="column.dataIndex == 'userType'">
@@ -17,33 +17,11 @@
 				</a-tag>
 			</template>
 			<template v-if="column.dataIndex == 'operation'">
-				<a-button
-					class="table-opt"
-					type="primary"
-					size="small"
-					@click="details(record)"
-					ghost
-					>详情</a-button
-				>
-				<a-button
-					class="table-opt"
-					type="primary"
-					size="small"
-					@click="edit(record)"
-					>编辑</a-button
-				>
-				<a-popconfirm
-					title="确认删除吗？"
-					ok-text="确认"
-					cancel-text="取消"
-					@confirm="del(record.userId)"
-				>
-					<template #icon
-						><question-circle-outlined style="color: red;"
-					/></template>
-					<a-button class="table-opt" type="primary" size="small" danger
-						>删除</a-button
-					>
+				<a-button class="table-opt" type="primary" size="small" @click="details(record)" ghost>详情</a-button>
+				<a-button class="table-opt" type="primary" size="small" @click="edit(record)">编辑</a-button>
+				<a-popconfirm title="确认删除吗？" ok-text="确认" cancel-text="取消" @confirm="del(record.userId)">
+					<template #icon><question-circle-outlined style="color: red" /></template>
+					<a-button class="table-opt" type="primary" size="small" danger>删除</a-button>
 				</a-popconfirm>
 			</template>
 		</template>
@@ -91,6 +69,18 @@ const columns = reactive([
 		align: 'center',
 		dataIndex: 'lastLoginDate',
 		width: '100px'
+	},
+	{
+		title: '创建时间',
+		align: 'center',
+		dataIndex: 'createdAt',
+		width: '120px'
+	},
+	{
+		title: '创建人',
+		align: 'center',
+		dataIndex: 'createBy',
+		width: '120px'
 	},
 	{
 		title: '操作',
