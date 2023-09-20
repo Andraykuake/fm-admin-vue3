@@ -19,15 +19,15 @@
 						:treeDefaultExpandAll="false"
 						:field-names="{
 							children: 'children',
-							value: 'menu_id',
-							label: 'menu_name'
+							value: 'menuId',
+							label: 'menuName'
 						}"
 						show-search
-						tree-node-filter-prop="menu_name"
+						tree-node-filter-prop="menuName"
 					>
-						<template #title="{ menu_name, children }">
+						<template #title="{ menuName, children }">
 							<span>
-								{{ menu_name }}
+								{{ menuName }}
 								<span v-if="children && children.length"
 									>({{ children.length }})</span
 								>
@@ -96,7 +96,7 @@ import { ref, computed, onMounted, watch } from 'vue'
 import FmSelectIcon from '@/components/fm-select-icon/index.vue'
 import { SysMenu } from '@/types/models'
 import api from '@/api'
-const props = defineProps({
+const props = defineProps({	
 	title: {
 		type: String,
 		default: ''
@@ -120,8 +120,8 @@ onMounted(() => {
  */
 const menuList = ref([
 	{
-		menu_id: 0,
-		menu_name: '主类目',
+		menuId: 0,
+		menuName: '主类目',
 		children: []
 	}
 ])
