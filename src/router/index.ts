@@ -38,6 +38,15 @@ const routes: RouteRecordRaw[] = [
 				path: '/system/icon',
 				name: '系统图标',
 				component: () => import('@/pages/system/icon/index.vue')
+			},
+			{
+				meta: {
+					title: '出现错误了-飞码社区',
+					keywords: 'Fly Code Ape'
+				},
+				name: '出问题喽',
+				path: '/404',
+				component: () => import('@/pages/error/404.vue')
 			}
 		]
 	},
@@ -50,13 +59,10 @@ const routes: RouteRecordRaw[] = [
 		path: '/category/:id',
 		component: () => import('@/pages/workspace.vue')
 	},
+	
 	{
-		meta: {
-			title: '出现错误了-飞码社区',
-			keywords: 'Fly Code Ape'
-		},
-		path: '/404',
-		component: () => import('@/pages/workspace.vue')
+		path: '/:catchAll(.*)',
+		redirect: '/404'
 	}
 ]
 const _router = createRouter({
