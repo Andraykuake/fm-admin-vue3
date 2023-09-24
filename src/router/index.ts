@@ -15,17 +15,19 @@ const routes: RouteRecordRaw[] = [
 			{
 				path: '/workspace',
 				name: '工作台',
-				meta: {},
+				meta: { keepAlive: false },
 				component: () => import('@/pages/workspace.vue')
 			},
 			{
 				path: '/system/user',
 				name: '用户管理',
+				meta: { keepAlive: true },
 				component: () => import('@/pages/system/user/index.vue')
 			},
 			{
 				path: '/system/role',
 				name: '角色管理',
+				meta: { keepAlive: true },
 				component: () => import('@/pages/system/role/index.vue')
 			},
 			{
@@ -37,12 +39,14 @@ const routes: RouteRecordRaw[] = [
 			{
 				path: '/system/icon',
 				name: '系统图标',
+				meta: { keepAlive: false },
 				component: () => import('@/pages/system/icon/index.vue')
 			},
 			{
 				meta: {
 					title: '出现错误了-飞码社区',
-					keywords: 'Fly Code Ape'
+					keywords: 'Fly Code Ape',
+					keepAlive: false
 				},
 				name: '出问题喽',
 				path: '/404',
