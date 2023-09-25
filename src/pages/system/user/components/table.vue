@@ -101,7 +101,7 @@ const columns = reactive([
 	{
 		title: '创建人',
 		align: 'center',
-		dataIndex: 'createBy',
+		dataIndex: 'createdBy',
 		width: '120px'
 	},
 	{
