@@ -141,13 +141,12 @@ const handleOk = () => {
  * 保存角色数据，添加或修改
  */
 const saveRole = () => {
-	const param = { ...props.data }
+	const param = { menuIds: checkedMenuIds.value, ...props.data }
 	const http =
 		props.title == '添加角色'
 			? api.sysRole.addSysRole
 			: api.sysRole.updateSysRole
-	console.log(param)
-	http(props.data).then((res) => {
+	http(param).then((res) => {
 		if (res.data == true) {
 			message.success(res.message)
 			emit('saveCallback')
@@ -170,7 +169,6 @@ const menuList = ref<Array<SysMenu>>([])
  * 加载菜单表格数据
  */
 const loadMenuList = (params: object) => {
-	console.log(params)
 	api.sysMenu
 		.querySysMenuList({
 			...params
@@ -220,6 +218,24 @@ watch(
 
 		// 3.父子节点选中是否关联
 		checkStrictly.value = !v.includes('link')
+	},
+	{
+		deep: true
+	}
+)
+
+/**
+ * 监听data对象变化, 更新 菜单权限选中项
+ */
+watch(
+	() => props.data,
+	(role) => {
+		checkedMenuIds.value = []
+		if (role?.SysMenus) {
+			role.SysMenus.forEach((menu) => {
+				checkedMenuIds.value.push(menu.menuId as number)
+			})
+		}
 	},
 	{
 		deep: true

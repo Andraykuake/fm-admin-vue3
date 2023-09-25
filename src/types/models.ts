@@ -37,6 +37,8 @@ export interface SysRole {
 	status?: string
 	updatedBy?: string
 	updatedAt?: null
+	menuIds?: Array<number>
+	SysMenus?: Array<SysMenu>
 }
 
 /**
