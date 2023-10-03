@@ -67,3 +67,20 @@ export interface SysUser {
 	userName: string
 	userType: string
 }
+
+/**
+ * article_category
+ */
+export interface ArticleCategory {
+	categoryId?: number
+	name?: string
+	pid: number
+	icon: string
+	sort: string
+	description: string
+	status: number
+	updatedBy?: string
+	updatedAt?: string
+	createdBy?: string
+	createdAt?: string
+}
