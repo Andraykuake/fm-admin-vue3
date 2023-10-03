@@ -1,9 +1,13 @@
-import * as sysUser from './sys/User'
-import * as sysMenu from './sys/Menu'
-import * as sysRole from './sys/Role'
+import * as sysUser from './system/User'
+import * as sysMenu from './system/Menu'
+import * as sysRole from './system/Role'
+
+import * as articleCategory from './article/Category'
 
 export default {
 	sysUser,
 	sysMenu,
-	sysRole
+	sysRole,
+
+	articleCategory
 }
