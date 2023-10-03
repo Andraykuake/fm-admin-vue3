@@ -225,14 +225,15 @@ watch(
 )
 
 /**
- * 监听data对象变化, 更新 菜单权限选中项
+ * 监听 SysMenus 变化, 每次显示编辑面板时
+ * 即更新 菜单权限选中项, SysMenus 为当前角色下拥有的菜单权限
  */
 watch(
-	() => props.data,
-	(role) => {
+	() => props.data?.SysMenus,
+	(sysMenus) => {
 		checkedMenuIds.value = []
-		if (role?.SysMenus) {
-			role.SysMenus.forEach((menu) => {
+		if (sysMenus) {
+			sysMenus.forEach((menu) => {
 				checkedMenuIds.value.push(menu.menuId as number)
 			})
 		}
