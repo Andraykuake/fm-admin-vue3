@@ -174,14 +174,9 @@ const saveCategory = () => {
 
 watch(
 	() => props.data,
-	(v) => {
-		// 重新加载列表
+	() => {
+		// 重新加载文章分类列表
 		loadCategoryList()
-		if (v.pid == v.categoryId) {
-		}
-	},
-	{
-		deep: true
 	}
 )
 </script>
