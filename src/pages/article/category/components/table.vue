@@ -85,7 +85,7 @@ const columns = reactive([
 		title: '操作',
 		align: 'center',
 		dataIndex: 'operation',
-		width: '140px',
+		width: '150px',
 		fixed: 'right'
 	}
 ])
